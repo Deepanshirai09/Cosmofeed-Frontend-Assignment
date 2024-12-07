@@ -1,70 +1,81 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Setup and Installation
 
-In the project directory, you can run:
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Start the application with `npm start`.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Application Workflow
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Adding a Task
 
-### `npm test`
+1. Click the **Add Task** button to open the modal.
+2. Fill in the details (summary, description, priority, and due date).
+3. Use the React Quill editor for a rich text description.
+4. Save the task to see it in the **Pending** and **All Tasks** tabs.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Editing a Task
 
-### `npm run build`
+1. Click the **Edit** icon next to a task.
+2. Modify the task fields and save the changes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Deleting a Task
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Click the **Delete** icon next to a task.
+2. Confirm the deletion in the pop-up.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Managing Tasks
 
-### `npm run eject`
+- **Mark as Completed**: Click the **Done** button; the task moves to the **Completed** tab.
+- **Reopen a Task**: Click the **Reopen** button; the task moves back to **Pending**.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Search and Sort
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Use the global search bar to filter tasks by title or description.
+- Click column headers to sort tasks by the selected attribute.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Group By
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Use the dropdown to group tasks by priority, created date, or due date.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Key Implementations
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### State Management with Redux
 
-### Code Splitting
+- Used Redux Thunk to simulate asynchronous actions for CRUD operations.
+- Tasks stored in a global Redux store, ensuring seamless communication across components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Rich Text Editor
 
-### Analyzing the Bundle Size
+- Integrated React Quill for task descriptions, providing a modern text-editing experience.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Modular Design
 
-### Making a Progressive Web App
+- Components such as `AddTaskModal`, `TaskList`, and `Tabs` ensure code reusability and maintainability.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Accessibility and Usability
 
-### Advanced Configuration
+- Modals close with the **Escape** key.
+- Implemented keyboard shortcuts for enhanced user experience.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Sorting and Searching
 
-### Deployment
+- Configurable attributes (defined in `config.js`) determine sort and search behaviors dynamically.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Bulk Actions
 
-### `npm run build` fails to minify
+- Checkbox selection for multiple tasks to perform bulk operations like delete and state changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Known Issues or Limitations
+
+- **Styling Conflicts**: Some minor inconsistencies in modal alignment on smaller screens.
+- **API Integration**: Current CRUD operations are simulated using `setTimeout` (no real API integration).
+
