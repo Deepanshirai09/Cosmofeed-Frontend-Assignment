@@ -18,13 +18,16 @@ const tasksSlice = createSlice({
     updateTask: (state, action) => {
       const index = state.tasks.findIndex(task => task.id === action.payload.id);
       if (index !== -1) state.tasks[index] = action.payload;
+       state.filteredTasks= [];
     },
     deleteTask: (state, action) => {
       state.tasks = state.tasks.filter(task => task.id !== action.payload);
+       state.filteredTasks= [];
     },
     toggleTaskState: (state, action) => {
       const index = state.tasks.findIndex(task => task.id === action.payload);
       if (index !== -1) state.tasks[index].done = !state.tasks[index].done;
+       state.filteredTasks= [];
     },
 
     setSortBy: (state, action) => {
